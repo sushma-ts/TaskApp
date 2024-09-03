@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login</h1>                            
+            <form method="POST">   <input type='hidden'/>
+            {% csrf_token %}    
+	        <div>
+				{{form}}
+            </div>
+            <div>
+                <button type="submit">
+                    Submit
+                </button>
+            </div>
+            </form>
+    </div>
+                            
+</body>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+    <h1>Confirm Delete</h1>
+    <p>Are you sure you want to delete "{{ task.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+        <button type="submit">Confirm</button>
+        <a href="{% url 'task_list' %}">Cancel</a>
+        </div>
+    </form>
+    
+    </div>
+</body>
+</html>

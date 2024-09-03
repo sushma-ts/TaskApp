@@ -15,8 +15,8 @@ from django.utils.html import strip_tags
 #login form with captcha
 class LoginForm(AuthenticationForm):   
     widgets = {
-          "username": TextInput(attrs={'size': '15','autocomplete': 'off'  }),
-          "password": TextInput(attrs={'size': '15','autocomplete': 'off'  }),
+          "username": TextInput(attrs={'autocomplete': 'off'  }),
+          "password": TextInput(attrs={'autocomplete': 'off'  }),
     }
 
     #Form element arragement using crispy

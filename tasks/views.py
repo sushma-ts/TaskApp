@@ -34,7 +34,7 @@ class TaskFormView(LoginRequiredMixin, generic.CreateView):
     model = Task
     template_name = 'tasks/form.html'
     form_class = TaskForm
-    success_url = '/'
+    success_url = '/addtask'
 
 def task_list(request):
     tasks = Task.objects.all()

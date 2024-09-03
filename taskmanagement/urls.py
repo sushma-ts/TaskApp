@@ -23,4 +23,4 @@ urlpatterns = [
     path('', include('tasks.urls')),
     path('usercredentials/', include('usercredentials.urls')),
 
-]#+ static(settings.STATIC_URL)
+]

@@ -54,7 +54,7 @@ class SignInView(FormView):
                 nexturl = self.request.GET['next']
                 return redirect(nexturl)
             else: 
-                return redirect('/')
+                return redirect('/addtask')
                 
         else:
             form = LoginForm() #AuthenticationForm()

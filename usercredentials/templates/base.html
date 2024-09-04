@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Task App</title>
-   
+    <title>{% block title %}Task Management{% endblock %}</title>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body class="override">
+  
     <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container">
+       
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                     <span class="sr-only">Tasks</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Task Management</a>
+                <h3>Task Management</h3>
             </div>
            
             <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <!--li><a href="/usercredentials/admin">Login</a></li>
-                    <li><a href="/usercredentials/logout">Logout</a></li-->
-                </ul>
+            
+            {%if request.user.is_authenticated %}
+
+            <div class="nav-item navbar-right justify" >
+              <a class="nav-link" href="/logout">Logout</a>
             </div>
-        </div>
-    </nav>
-   
-    <div class="container">
-        <div class="row">
-            {% block content %}{% endblock %}
-        </div>
-    </div>
-   
+            {%else %}
+            <div class="nav-item navbar-right">
+              <a class="nav-link" href="/">Login</a>
+            </div>
+            {%endif %}
+
+            </div>
+ 
+    </nav> 
+
+            {% block content %}
+            {% endblock %}  
 
 </body>
 </html>

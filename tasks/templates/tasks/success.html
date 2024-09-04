@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Status</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-                Successfully Done.            
+{% extends "base.html" %}
+
+{%block heading%}Status{%endblock%}
+
+{% block content %}
+    <div class="container custom-page-h">
+               <h3> Successfully Added.  </h3>    
+              <a href="/tasks/list">Go to List</a>
     </div>
-</body>
+{% endblock %}

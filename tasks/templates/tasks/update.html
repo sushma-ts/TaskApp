@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Task</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
+{% extends "base.html" %}
+
+{%block heading%}Edit Task{%endblock%}
+{% block content %}
+    <div class="container custom-page-h">
     <h1>Edit Task</h1>
     <form method="post">
         {% csrf_token %}
@@ -18,5 +14,4 @@
         
     </form>    
     </div>
-</body>
-</html>
+{% endblock %}

@@ -1,32 +1,28 @@
-.box-shadow {
-	box-shadow: 0 6px 10px rgb(202, 219, 233), 0 0 6px rgba(0,0,0,.05) !important; /* 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05) !important; */
-}
-
-.custom-page-h { 
-	min-height: 450px;
-}
 
 body {
-	font-family: Arial, sans-serif;
+	font-family: 'Times New Roman', Times, serif;
 	margin: 0;
 	padding: 0;
 	background-color: #f4f4f4;
 }
 
 h1 {
-	color: #881802;
+	color: #881802 !important;
 	text-align: center;
 	margin-top: 20px;
 }
 
 .container {
 	width: 80%;
-	max-width: 600px;
+	max-width: 1000px;
+	min-height: 700px;
 	margin: 20px auto;
 	padding: 20px;
-	background-color: #fff;
+	text-decoration-color: #fff;
 	border-radius: 8px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 6px 10px rgb(202, 219, 233), 0 0 6px rgba(0,0,0,.05) !important; /* 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05) !important; */
+	min-height: 450px;
+	
 }
 
 form {
@@ -54,26 +50,23 @@ textarea {
 	box-sizing: border-box;
 }
 
-textarea {
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
 
 button {
-	background-color: #881802;
-	color: white;
+	background-color: #881802; /* Replace with your chosen color */
 	border: none;
+	color: #fff !important;
 	padding: 10px 15px;
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: 16px;
+	text-decoration-color: #fff;
+	color: #ffffff;
+	
 }
 
 button:hover {
 	background-color: #218838;
+	text-decoration-color: #fff;
 }
 
 a {
@@ -102,4 +95,36 @@ a:hover {
 
 .task-table tr:hover {
     background-color: #f1f1f1;
+}
+
+.custom-page-h { 
+	min-height: 450px;
+}
+
+.box-shadow {
+	box-shadow: 0 6px 10px rgb(202, 219, 233), 0 0 6px rgba(0,0,0,.05) !important; /* 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05) !important; */
+}
+
+.navbar {
+	background-color: #881802 !important; /* Replace with your chosen color */
+    color: #ffffff;
+	box-shadow: 0 .025rem 0.3rem rgba(255,255,255,1) !important;
+}
+
+.navbar-header {
+    display: flex;
+    justify-content: center; /* Centers the contents horizontally */
+    align-items: center; /* Centers the contents vertically */
+    width: 100%; /* Ensure it takes up the full width */
+    position: relative;
+}
+
+.navbar-center h3 {
+    margin: 0;
+    text-align: center; /* Centers the text */
+}
+
+.navbar-toggle {
+    position: absolute;
+    left: 15px; /* Adjust this value as needed */
 }

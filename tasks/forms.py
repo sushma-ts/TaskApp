@@ -15,7 +15,7 @@ class TaskForm(ModelForm):
     class Meta:
         model = Task
 
-        fields = ["title", "description", "status","user", ]
+        fields = ["title", "description", "status","user"]
 
         error_messages = {
             'title': {
@@ -52,7 +52,6 @@ class TaskForm(ModelForm):
                     Button('cancel', 'Cancel', css_class='btn btn-secondary m-2'),
                     Submit('submit', 'Submit', css_class='btn iia-btn-bg-primary m-2'),
                     css_class='float-right'
-
                 )
 
               )
@@ -67,48 +66,11 @@ class TaskForm(ModelForm):
         #clean html tags from text fields and validating length
         cleaned_data['title'] = strip_tags(cleaned_data.get('title'))
         if len(cleaned_data['title']) > 50:
-            self._errors['RequesterName'] = self.error_class([
-                'Maximum 50 characters are allowed for Requester Name field!'])
+            self._errors['title'] = self.error_class([
+                'Maximum 50 characters are allowed for title field!'])
         
-        #cleaned_data['MeetingDate'] = strip_tags(cleaned_data.get('MeetingDate'))
-        #cleaned_data['MeetingStartTime'] = strip_tags(cleaned_data.get('MeetingStartTime'))
-        #cleaned_data['MeetingEndTime'] = strip_tags(cleaned_data.get('MeetingEndTime'))
+        cleaned_data['description'] = strip_tags(cleaned_data.get('description'))
+        cleaned_data['status'] = strip_tags(cleaned_data.get('status'))
 
         return cleaned_data
 			
-"""
-#To open update view of record 
-class ZoomMeetingUpdateForm(ModelForm):
-  class Meta:
-        # Name of models for which the form is made
-        model = ZoomRequestData
-
-        # Custom fields #"
-        fields = [ "MeetingStatus"]
-
-        labels = {
-            'MeetingStatus': _('Change status'),
-        }        
-  #Form element arragement using crispy
-  def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_tag  = False
-
-        self.helper.layout = Layout(
-              Fieldset('',
-                 Row(
-                   Column('MeetingStatus'),
-                   css_class=''
-                ),
-               #Row(
-                   # Button('cancel', 'Cancel', css_class='btn btn-secondary m-2  '),
-                   # Submit('submit', 'Submit', css_class='btn btn-info m-2'),
-                   # css_class='float-right'
-
-               # )
-                       
-             )
-       )
-        
-"""

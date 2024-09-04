@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Confirm Delete</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
+{% extends "base.html" %}
+
+{%block heading%}Confirm Delete{%endblock%}
+
+{% block content %}
+    <div class="container custom-page-h">
     <h1>Confirm Delete</h1>
     <p>Are you sure you want to delete "{{ task.title }}"?</p>
     <form method="post">
@@ -18,5 +15,4 @@
     </form>
     
     </div>
-</body>
-</html>
+{% endblock %}

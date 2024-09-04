@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Task</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-    <h1>Add Task</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div>
-            <button type="submit">Save</button>
-            <a href="{% url 'task_list' %}">Cancel</a>
-        </div>
-        
-    </form>
-    
+{% extends "base.html" %}
+
+{%block heading%}Add Task{%endblock%}
+{% block content %}
+    <div class="container custom-page-h">
+        <h1>Add Task</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <button type="submit" >Save</button>
+                <a href="{% url 'task_list' %}">Cancel</a>
+            </div>
+        </form>
     </div>
-</body>
-</html>
+{% endblock %}

@@ -5,6 +5,7 @@ from .models import Task
 from .forms import TaskForm
 from .serializers import TaskSerializer
 from django.views import generic
+from django.urls import reverse_lazy
 #login required mixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -27,14 +28,19 @@ class TaskRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 #Using form displaying lists, editing and deleting the tasks in frontend
 
-class SuccessView(generic.TemplateView):
-    template_name = 'tasks/success.html'
-
 class TaskFormView(LoginRequiredMixin, generic.CreateView):
     model = Task
     template_name = 'tasks/form.html'
     form_class = TaskForm
-    success_url = '/addtask'
+    success_url = reverse_lazy('task_list')
+
+    def form_valid(self, form):
+        # Assign the logged-in user to the Task's user field
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class SuccessView(generic.TemplateView):
+    template_name = 'tasks/success.html'
 
 def task_list(request):
     tasks = Task.objects.all()
@@ -46,7 +52,7 @@ def task_edit(request, pk):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('task_list')
+            return redirect('success')
     else:
         form = TaskForm(instance=task)
     return render(request, 'tasks/update.html', {'form': form})

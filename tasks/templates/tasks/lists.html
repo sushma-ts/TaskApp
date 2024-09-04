@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Task List</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>Task List</h1>
+{% extends "base.html" %}
+
+{%block heading%}Task List{%endblock%}
+{% block content %}
+    <div class="container custom-page-h">
+        <h1 >Task List</h1>
         <table class="task-table">
             <thead>
                 <tr>
@@ -30,5 +26,4 @@
             </tbody>
         </table>
     </div>
-</body>
-</html>
+{% endblock %}
